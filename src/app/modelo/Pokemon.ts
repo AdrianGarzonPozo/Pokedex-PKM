@@ -1,8 +1,9 @@
 export class Pokemon {
     constructor(
         public _id: string,
-        public name: string,
         public id_pokedex: number,
+        public name: string,
+        public weigth: number,
         public types: [string],
         public stats: [object],
         public abilities: [object],
