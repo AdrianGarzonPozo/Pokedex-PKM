@@ -1,18 +1,23 @@
+import { FindPkmComponent } from './components/findPkm/findPkm.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/Home/Home.component';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { appRoutingProviders, routing } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    FindPkmComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    routing
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

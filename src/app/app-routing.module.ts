@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { FindPkmComponent } from './components/findPkm/findPkm.component';
+import { HomeComponent } from './components/home/home.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
 
-const routes: Routes = [];
+const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'findPokemon', component: FindPkmComponent},
+  {path: 'pokedex', component: PokedexComponent},
+  {path:'**', component: HomeComponent}
+];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders<Route> = RouterModule.forRoot(appRoutes);
