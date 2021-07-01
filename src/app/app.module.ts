@@ -1,6 +1,6 @@
 import { FindPkmComponent } from './components/findPkm/findPkm.component';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/Home/Home.component';
+import { HomeComponent } from './components/home/home.component';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

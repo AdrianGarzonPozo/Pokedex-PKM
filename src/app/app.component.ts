@@ -8,32 +8,32 @@ import { Pokemon } from './modelo/Pokemon';
 })
 export class AppComponent {
   title: string = 'Pokedex-PKM';
-  pokemon: Pokemon=new Pokemon('','',0,[''],[{}],[{}],[{}]);
+  pokemon: Pokemon = new Pokemon('', '', 0, [''], [{}], [{}], [{}]);
 
   ngOnInit() {
-    this.randomPokemon();
+    /* this.findNamePokemon("Charmander");
+    this.findIdPokemon(2); */
   }
 
-  async randomPokemon(){
-    if (!localStorage.getItem("pkm")) {
-      const randomNumber = Math.floor(Math.random() * 897) + 1;
-      await fetch(`${keys.api}pokemon/${randomNumber}`)
-        .then(response => response.json())
-        .then(data => this.fillPokemon(data))
-        .catch(error=> this.randomPokemon());
-    }else{
-      console.log(this.pokemon);
+  async findNamePokemon(namePokemon:string) {
+    const name = namePokemon.toLowerCase();
+    await fetch(`${keys.api}pokemon/${name}`)
+      .then(response => response.json())
+      .then(data => this.fillPokemon(data))
+      .catch(error => alert("No Pkm"));
+  }
+
+  async findIdPokemon(idPokekmon:number) {
+    await fetch(`${keys.api}pokemon/${idPokekmon}`)
+      .then(response => response.json())
+      .then(data => this.fillPokemon(data))
+      .catch(error => alert("No Pkm"));
+  }
+
+  fillPokemon(pokemon) {
+    for (const key in this.pokemon) {
+      this.pokemon[key]=pokemon[key];
     }
-  }
-
-  fillPokemon(pokemon){
-    this.pokemon._id=pokemon.id; 
-    this.pokemon.name=pokemon.name;
-    this.pokemon.weight=pokemon.weight;
-    this.pokemon.types=pokemon.types;
-    this.pokemon.stats=pokemon.stats;
-    this.pokemon.abilities=pokemon.abilities;
-    this.pokemon.sprites=pokemon.sprites;
     console.log(this.pokemon);
   }
 }

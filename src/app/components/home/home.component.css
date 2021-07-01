@@ -1,0 +1,7 @@
+.box{
+    height: 89.2vh;
+}
+
+.card:hover{
+    cursor: pointer;
+}

@@ -1,3 +1,9 @@
 export const keys = {
-    "api":"https://pokeapi.co/api/v2/"
+    "api": "https://pokeapi.co/api/v2/"
 }
+
+export const types = ['bug', 'dark', 'dragon', 'electric',
+    'fairy', 'fighting', 'fire', 'flying', 'ghost',
+    'grass', 'ground', 'ice', 'normal', 'poison',
+    'psychic', 'rock', 'steel', 'water',
+];

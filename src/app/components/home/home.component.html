@@ -1,3 +1,17 @@
-<p>
-  home works!
-</p>
+<div class="box w-100 d-flex flex-column align-items-center justify-content-around">
+
+  <div class="d-flex justify-content-around align-items-center w-100">
+    <div class="card" style="width: 18rem;" *ngFor="let pkm of arrayPokemon">
+      <img [src]="pkm.sprites.front_default" class="card-img-top" alt="...">
+      <hr>
+      <div class="card-body text-capitalize">
+        <h5 class="card-title text-center">{{pkm.name}}</h5>
+      </div>
+    </div>
+  </div>
+
+    <div class="d-grid gap-2 col-2 mx-auto">
+      <button class="btn btn-primary" type="button" (click)="newRandomPokemon()">New Random Pokemon</button>
+    </div>
+
+</div>
