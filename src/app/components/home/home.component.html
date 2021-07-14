@@ -1,17 +1,31 @@
 <div class="box w-100 d-flex flex-column align-items-center justify-content-around">
 
   <div class="d-flex justify-content-around align-items-center w-100">
-    <div class="card" style="width: 18rem;" *ngFor="let pkm of arrayPokemon">
-      <img [src]="pkm.sprites.front_default" class="card-img-top" alt="...">
-      <hr>
-      <div class="card-body text-capitalize">
-        <h5 class="card-title text-center">{{pkm.name}}</h5>
-      </div>
+    <div class="card shadow" style="width: 18rem;" *ngFor="let pkm of arrayPokemon">
+      <a [routerLink]="['/profilePkm/'+pkm.id+'']" class="text-decoration-none text-dark">
+        <img src="../../../assets/pokemon/{{pkm.id}}.png" class="card-img-top {{pkm.types[0].type.name}} w-100"
+          alt="...">
+        <div class="card-body text-capitalize">
+          <div class="d-flex justify-content-center align-items-center">
+            <h5 class="card-title text-center me-4 text-uppercase m-0">{{pkm.name}}</h5>
+            <div *ngFor="let pkm of arrayPokemon; index as i" class="text-center">
+              <img *ngIf="pkm.types[i]" src="../../../assets/types/badge/{{pkm.types[i].type.name}}.svg" alt=""
+                class="w-50">
+            </div>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-around">
+            <p>{{pkm.stats[0].base_stat}} <b>Hp</b></p>
+            <p>{{pkm.stats[1].base_stat}} <b>Attack</b></p>
+            <p>{{pkm.stats[2].base_stat}} <b>Defense</b></p>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 
-    <div class="d-grid gap-2 col-2 mx-auto">
-      <button class="btn btn-primary" type="button" (click)="newRandomPokemon()">New Random Pokemon</button>
-    </div>
+  <div class="d-grid gap-2 col-2 mx-auto">
+    <button class="btn btn-primary" type="button" (click)="newRandomPokemon()">New Random Pokemon</button>
+  </div>
 
 </div>

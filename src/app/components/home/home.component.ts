@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   arrayPokemon: any = [];
 
   ngOnInit() {
-    console.log(this.arrayPokemon);
     this.randomPokemon();
   }
 
@@ -34,26 +33,30 @@ export class HomeComponent implements OnInit {
     for (const key in this.pokemon) {
       this.pokemon[key] = pokemon[key];
     }
-    console.log(this.pokemon);
+    console.log(this.pokemon.name);
+
     this.arrayPokemon.push(this.pokemon);
     console.log(this.arrayPokemon[0].name);
     console.log(this.arrayPokemon[1].name);
     console.log(this.arrayPokemon[2].name);
 
+    console.log(this.arrayPokemon.length);
     if (this.arrayPokemon.length < 3) {
+      console.log("------");
       this.randomPokemon();
     } else {
+      console.log("1");
       this.printPokemon();
     }
   }
 
   printPokemon() {
     console.log(this.arrayPokemon);
-    $('.box').addClass(this.pokemon.types[0].type.name);
+    /* console.log(this.arrayPokemon); */
   }
 
-  newRandomPokemon(){
-    this.arrayPokemon=[];
+  newRandomPokemon() {
+    this.arrayPokemon = [];
     this.randomPokemon();
   }
 }

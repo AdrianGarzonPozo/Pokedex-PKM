@@ -1,3 +1,4 @@
+import { ProfilePkmComponent } from './components/profilePkm/profilePkm.component';
 import { FindPkmComponent } from './components/findPkm/findPkm.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -11,7 +12,8 @@ import { appRoutingProviders, routing } from './app-routing.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    FindPkmComponent
+    FindPkmComponent,
+    ProfilePkmComponent
   ],
   imports: [
     BrowserModule,
